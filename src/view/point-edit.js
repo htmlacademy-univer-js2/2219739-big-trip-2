@@ -1,4 +1,4 @@
-import { createElement } from '../render.js';
+import AbstractView from '../framework/view/abstract-view.js';
 import { getDateAndTime } from '../utils.js';
 
 const createPointEditTemplate = (_point) => {
@@ -129,24 +129,13 @@ const createPointEditTemplate = (_point) => {
 </li>`;
 };
 
-export default class PointEdit {
+export default class PointEdit extends AbstractView {
   constructor(point) {
+    super();
     this._point = point;
   }
 
   get template() {
     return createPointEditTemplate(this._point);
-  }
-
-  get element() {
-    if (!this._element) {
-      this._element = createElement(this.template);
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

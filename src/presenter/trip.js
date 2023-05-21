@@ -1,4 +1,4 @@
-import { render } from '../render';
+import { render } from '../framework/render.js';
 import Point from '../view/point';
 import PointEdit from '../view/point-edit';
 import Sort from '../view/sort';
