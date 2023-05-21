@@ -53,5 +53,15 @@ export default class Point extends AbstractView {
   get template() {
     return createPointTemplate(this._point);
   }
+
+  setEditClickHandler = (callback) => {
+    this._callback.click = callback;
+    this.element.addEventListener('click', this._editClickHandler);
+  }
+
+  _editClickHandler = (evt) => {
+    evt.preventDefault();
+    this._callback.click();
+  }
 }
 
