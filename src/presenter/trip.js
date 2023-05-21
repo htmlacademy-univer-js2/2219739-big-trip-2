@@ -1,4 +1,4 @@
-import { render } from '../framework/render.js';
+import { render, replace } from '../framework/render.js';
 import Point from '../view/point';
 import PointEdit from '../view/point-edit';
 import Sort from '../view/sort';
@@ -32,11 +32,11 @@ class Trip {
     const pointEditComponent = new PointEdit(point);
 
     const replaceFormToPoint = () => {
-      this._component.element.replaceChild(pointComponent.element, pointEditComponent.element);
+      replace(pointComponent, pointEditComponent);
     };
 
     const replacePointToForm = () => {
-      this._component.element.replaceChild(pointEditComponent.element, pointComponent.element);
+      replace(pointEditComponent, pointComponent);
     };
 
     const onEscKeyDown = (evt) => {
